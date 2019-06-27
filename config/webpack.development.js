@@ -7,8 +7,7 @@ module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   entry: [
-    'webpack-dev-server/client?http://0.0.0.0:8080',
-    'webpack/hot/only-dev-server',
+    require.resolve('react-dev-utils/webpackHotDevClient'),
     './src/index.js'
   ],
   output: {
