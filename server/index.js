@@ -37,10 +37,11 @@ proxy.on('error', function(err, req, res) {
 });
 
 // make sure to pass app info with get request
-const params = `&client_id=${CLIENT_ID}&client_secret=${APP_SECRET}`;
+const params = `?client_id=${CLIENT_ID}&client_secret=${APP_SECRET}`;
 // Proxy all the api requests
 // Accept all api requests until we know required routes
 app.all('/api/*', function(req, res) {
+  console.log(req.url);
   const query = req.url.substring(5); // remove '/api/' from the get request
   proxy.web(req, res, {
     changeOrigin: true, // https request from local
