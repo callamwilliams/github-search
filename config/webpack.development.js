@@ -1,0 +1,31 @@
+'use strict';
+
+const path = require('path');
+const webpack = require('webpack');
+
+module.exports = {
+  mode: 'development',
+  devtool: 'eval-source-map',
+  entry: [
+    'webpack-dev-server/client?http://0.0.0.0:8080',
+    'webpack/hot/only-dev-server',
+    './src/index.js'
+  ],
+  output: {
+    path: path.resolve(__dirname, '../public'),
+    filename: 'scripts/bundle.[hash].js',
+    chunkFilename: 'scripts/vendors.[chunkhash].js',
+    publicPath: '/'
+  },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './src',
+    compress: true,
+    hot: true
+  },
+  // Disable performance hints for unminifed code
+  performance: {
+    hints: false
+  },
+  plugins: [new webpack.HotModuleReplacementPlugin()]
+};
