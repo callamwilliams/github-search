@@ -51,7 +51,7 @@ app.all('/api/*', function(req, res) {
 
 // Otherwise serve index.html
 app.get('*', function(req, res) {
-  res.sendfile('/public/index.html');
+  res.sendFile('/public/index.html');
 });
 
 const port = PORT || 5000;
@@ -61,4 +61,5 @@ app.listen(port, () => {
 
 // organisations GET /orgs/:org/repos/:page
 // users GET /users/:username/repos/:page
+// /api/users/octocat/repos
 // sort Can be one of created, updated, pushed, full_name. Default: full_name
