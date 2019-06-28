@@ -1,6 +1,6 @@
 import React from 'react';
-import * as S from './styles';
 import SearchBox from '../containers/SearchBox';
+import RepoList from '../containers/RepoList';
 import User from '../containers/User';
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
     <main>
       <SearchBox />
       <User />
+      <RepoList />
     </main>
   );
 };
