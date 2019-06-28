@@ -5,6 +5,7 @@ import * as S from './styles';
 import ErrorMessage from '../../components/ErrorMessage';
 
 const User = ({ user, loading, error }) => {
+  // TODO: make a global error handler
   if (error) return <ErrorMessage>Could not find that user</ErrorMessage>;
   if (_.isEmpty(user)) return null;
 
