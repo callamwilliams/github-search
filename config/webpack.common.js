@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.(jpe?g|png|gif)$/,
         exclude: /(node_modules)/,
         loader: 'file-loader',
         options: {
@@ -21,12 +21,16 @@ module.exports = {
         }
       },
       {
-        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        test: /\.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
         exclude: /(node_modules)/,
         loader: 'url-loader?limit=100000',
         options: {
           name: './fonts/[name].[ext]'
         }
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader']
       },
       {
         enforce: 'pre',
