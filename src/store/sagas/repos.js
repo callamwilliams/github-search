@@ -12,10 +12,9 @@ function fetchReposData(username) {
 }
 
 export function* fetchRepos(action) {
-  let { login } = action.payload;
+  let { username } = action.payload;
   try {
-    let response = yield call(fetchReposData, login);
-    console.log('saga');
+    let response = yield call(fetchReposData, username);
     if (response.data) {
       yield put({ type: GET_REPOS_SUCCESS, payload: response.data });
     }

@@ -6,7 +6,7 @@ import {
 } from '../constants/actionTypes';
 
 const initialState = {
-  data: {},
+  data: [],
   loading: false,
   error: ''
 };
@@ -21,7 +21,7 @@ export default function(state = initialState, action) {
     case GET_REPOS_SUCCESS:
       return {
         ...state,
-        data: { ...action.payload },
+        data: [...action.payload],
         loading: false,
         error: ''
       };

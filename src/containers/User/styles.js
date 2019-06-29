@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
+  flex: 0 1 25%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 25%;
+  height: fit-content;
   padding: 10px 20px;
 `;
 

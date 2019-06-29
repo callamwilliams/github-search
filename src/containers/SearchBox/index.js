@@ -4,12 +4,14 @@ import * as S from './styles';
 import LogoSVG from '../../assets/img/octocat.svg';
 
 import { getUser } from '../../store/actions/user';
+import { getRepos } from '../../store/actions/repos';
 
-const SearchBox = ({ getUser }) => {
+const SearchBox = ({ getUser, getRepos }) => {
   const [input, setInput] = useState('');
 
   const onSubmit = e => {
     e.preventDefault();
+    getRepos(input);
     getUser(input);
     clearInput();
   };
@@ -41,5 +43,5 @@ const SearchBox = ({ getUser }) => {
 
 export default connect(
   null,
-  { getUser }
+  { getUser, getRepos }
 )(SearchBox);
