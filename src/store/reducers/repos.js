@@ -8,6 +8,7 @@ import {
 const initialState = {
   data: [],
   loading: false,
+  nextPage: {},
   error: ''
 };
 
@@ -21,7 +22,8 @@ export default function(state = initialState, action) {
     case GET_REPOS_SUCCESS:
       return {
         ...state,
-        data: [...action.payload],
+        data: [...action.payload.repos],
+        nextPage: action.payload.nextPage,
         loading: false,
         error: ''
       };

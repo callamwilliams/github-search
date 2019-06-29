@@ -8,8 +8,9 @@ import UpdatedSVG from '../../assets/img/updated.svg';
 
 moment.locale('en-gb');
 
-const RepoList = ({ repos, loading, error }) => {
+const RepoList = ({ repos, nextPage, loading, error }) => {
   if (_.isEmpty(repos)) return null;
+  console.log(nextPage);
   return (
     <S.Repos>
       {repos &&
@@ -44,8 +45,10 @@ const RepoList = ({ repos, loading, error }) => {
 };
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     repos: state.repos.data,
+    nextPage: state.repos.nextPage,
     loading: state.repos.loading,
     error: state.repos.error.message
   };

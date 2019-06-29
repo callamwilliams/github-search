@@ -14,15 +14,15 @@
 
 ### Search username/organisation
 
-- [ ] Controlled search input
+- [X] Controlled search input
 - [ ] Search type select
 - [ ] Loading component using suspense
 - [ ] Fetch data using fetch API, not axios
-- [ ] Manage data with global state
+- [X] Manage data with global state
 
 ### List of public repos
 
-- [ ] List
+- [X] List
 - [ ] Click repo to show info
 - [ ] Pagination
 - [ ] Sortable and filterable by API options
