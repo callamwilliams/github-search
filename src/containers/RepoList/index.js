@@ -10,7 +10,7 @@ import UpdatedSVG from '../../assets/img/updated.svg';
 
 moment.locale('en-gb');
 
-const RepoList = ({ repos, nextPage, loading, error }) => {
+const RepoList = ({ repos, loading, error }) => {
   if (_.isEmpty(repos)) return null;
 
   return (
@@ -49,10 +49,9 @@ const RepoList = ({ repos, nextPage, loading, error }) => {
 };
 
 function mapStateToProps(state) {
-  const { data, nextPage, loading, error } = state.repos;
+  const { data, loading, error } = state.repos;
   return {
     repos: data,
-    nextPage: nextPage,
     loading: loading,
     error: error.message
   };

@@ -7,7 +7,6 @@ import {
 const initialState = {
   data: [],
   loading: false,
-  nextPage: {},
   error: ''
 };
 
@@ -22,7 +21,6 @@ export default function(state = initialState, action) {
       return {
         ...state,
         data: [...action.payload.repos],
-        nextPage: action.payload.nextPage,
         loading: false,
         error: ''
       };
