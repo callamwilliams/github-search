@@ -3,6 +3,21 @@ import axios from 'axios';
 import changeCase from 'change-case';
 import { GET_REPOS_SUCCESS, GET_REPOS_FAIL } from '../constants/actionTypes';
 
+function cleanURL(url) {
+  let cleanLink = decodeURIComponent(url);
+  cleanLink = cleanLink.split(',').find(s => s.indexOf('rel="next"') > -1);
+  cleanLink = cleanLink.split(';')[0].slice(1, -1);
+  return cleanLink;
+}
+
+function getNextPage(response) {
+  const link = response.headers.link;
+  if (!link) return null;
+  const nextLink = cleanURL(link);
+  if (!nextLink) return null;
+  return nextLink;
+}
+
 function getUrlType(username, userType) {
   let url;
   if (userType === 'username') {
@@ -44,7 +59,8 @@ export function* fetchRepos(action) {
     let response = yield call(fetchReposData, `${url}`);
 
     if (response.data) {
-      yield put({ type: GET_REPOS_SUCCESS, payload: response.data });
+      const customPayload = { repos: response.data };
+      yield put({ type: GET_REPOS_SUCCESS, payload: customPayload });
     }
   } catch (err) {
     yield put({ type: GET_REPOS_FAIL, payload: err });
