@@ -6,6 +6,7 @@ export const Repos = styled.ul`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex: 0 1 75%;
 `;
 
 export const Repo = styled.ul`

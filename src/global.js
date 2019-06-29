@@ -112,4 +112,72 @@ export const GlobalStyle = createGlobalStyle`
     touch-action: manipulation;
   }
 
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 30px 0;
+  border-radius: 0;
+
+  > li {
+    display: inline;
+    > a,
+    > span {
+      position: relative;
+      float: left;
+      padding: 10px;
+      margin-left: -1px;
+      line-height: 20px;
+      color: #000;
+      text-decoration: none;
+      background-color: #fff;
+      border: 1px solid #eee;
+
+      &:hover,
+      &:focus {
+        z-index: 2;
+        color: #fff;
+        background-color: #6cc644;
+        border-color: #6cc644;
+      }
+    }
+    &:first-child {
+      > a,
+      > span {
+        margin-left: 0;
+      }
+    }
+  }
+
+  > .active > a,
+  > .active > span {
+    &,
+    &:hover,
+    &:focus {
+      z-index: 3;
+      color: #fff;
+      cursor: default;
+      background-color: #4078c0;
+      border-color: #4078c0;
+    }
+  }
+
+  > .disabled {
+    > span,
+    > span:hover,
+    > span:focus,
+    > a,
+    > a:hover,
+    > a:focus {
+      color: #d3d3d3;
+      cursor: disabled;
+      background-color: #ececec;
+      border-color: #ececec;
+    }
+  }
+}
+
+
+
+
+
 `;

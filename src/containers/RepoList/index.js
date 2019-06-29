@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import Pagination from '../Pagination';
 import * as S from './styles';
 import ForkSVG from '../../assets/img/fork.svg';
 import IssuesSVG from '../../assets/img/issues.svg';
@@ -10,7 +11,7 @@ moment.locale('en-gb');
 
 const RepoList = ({ repos, nextPage, loading, error }) => {
   if (_.isEmpty(repos)) return null;
-  console.log(nextPage);
+
   return (
     <S.Repos>
       {repos &&
@@ -40,17 +41,18 @@ const RepoList = ({ repos, nextPage, loading, error }) => {
             </S.Repo>
           );
         })}
+      <Pagination />
     </S.Repos>
   );
 };
 
 function mapStateToProps(state) {
-  console.log(state);
+  const { data, nextPage, loading, error } = state.repos;
   return {
-    repos: state.repos.data,
-    nextPage: state.repos.nextPage,
-    loading: state.repos.loading,
-    error: state.repos.error.message
+    repos: data,
+    nextPage: nextPage,
+    loading: loading,
+    error: error.message
   };
 }
 export default connect(mapStateToProps)(RepoList);

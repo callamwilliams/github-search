@@ -26,10 +26,11 @@ const User = ({ user, loading, error }) => {
 };
 
 function mapStateToProps(state) {
+  const { data, loading, error } = state.user;
   return {
-    user: state.user.data,
-    loading: state.user.loading,
-    error: state.user.error.message
+    user: data,
+    loading: loading,
+    error: error.message
   };
 }
 export default connect(mapStateToProps)(User);
