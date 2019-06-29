@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const webpack = require('webpack');
 const globImporter = require('node-sass-glob-importer');
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -79,6 +80,7 @@ module.exports = {
     }),
     new HtmlPlugin({
       template: 'src/index.html'
-    })
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ]
 };
