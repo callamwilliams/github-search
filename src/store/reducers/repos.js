@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import {
   GET_REPOS,
   GET_REPOS_SUCCESS,

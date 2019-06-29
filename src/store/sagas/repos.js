@@ -34,7 +34,10 @@ function fetchReposData(url) {
 export function* fetchRepos(action) {
   let { username } = action.payload;
   try {
-    let response = yield call(fetchReposData, `/api/users/${username}/repos`);
+    let response = yield call(
+      fetchReposData,
+      `/api/users/${username}/repos?per_page=10`
+    );
 
     if (response.data) {
       let nextPage = yield getNextPage(response);

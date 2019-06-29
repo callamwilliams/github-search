@@ -45,6 +45,7 @@ app.all('/api/*', function(req, res) {
   const queryConcat = req.url.indexOf('?') > 0 ? '&' : '?';
   // make sure to pass app info with get request
   const auth = `${queryConcat}client_id=${CLIENT_ID}&client_secret=${APP_SECRET}`;
+
   proxy.web(req, res, {
     changeOrigin: true, // https request from local
     target: `https://api.github.com/${query}${auth}`
