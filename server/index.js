@@ -36,16 +36,18 @@ proxy.on('error', function(err, req, res) {
   errorHandler(err, req, res);
 });
 
-// make sure to pass app info with get request
-const params = `?client_id=${CLIENT_ID}&client_secret=${APP_SECRET}`;
 // Proxy all the api requests
 // Accept all api requests until we know required routes
 app.all('/api/*', function(req, res) {
-  console.log(req.url);
-  const query = req.url.substring(5); // remove '/api/' from the get request
+  // remove '/api/' from the get request
+  const query = req.url.substring(5);
+  // check wether to use & or ? before adding auth
+  const queryConcat = req.url.indexOf('?') > 0 ? '&' : '?';
+  // make sure to pass app info with get request
+  const auth = `${queryConcat}client_id=${CLIENT_ID}&client_secret=${APP_SECRET}`;
   proxy.web(req, res, {
     changeOrigin: true, // https request from local
-    target: `https://api.github.com/${query}${params}`
+    target: `https://api.github.com/${query}${auth}`
   });
 });
 
