@@ -15,7 +15,7 @@
 ### Search username/organisation
 
 - [X] Controlled search input
-- [ ] Search type select
+- [X] Search type select
 - [ ] Loading component using suspense
 - [ ] Fetch data using fetch API, not axios
 - [X] Manage data with global state
@@ -24,7 +24,7 @@
 
 - [X] List
 - [ ] Click repo to show info
-- [ ] Pagination
+- [X] Pagination
 - [ ] Sortable and filterable by API options
   - [ ] created
   - [ ] updated

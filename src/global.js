@@ -138,6 +138,7 @@ export const GlobalStyle = createGlobalStyle`
         color: #fff;
         background-color: #6cc644;
         border-color: #6cc644;
+        cursor: pointer;
       }
     }
     &:first-child {

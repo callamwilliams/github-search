@@ -13,10 +13,6 @@ const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
     getRepos(username, pageNumber);
   };
 
-  useEffect(() => {
-    setActivePage(currentPage);
-  }, []);
-
   return (
     <PageCount
       activePage={currentPage}

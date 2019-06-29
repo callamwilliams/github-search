@@ -10,3 +10,4 @@ export const GET_REPOS_SUCCESS = 'GET_REPOS_SUCCESS';
 export const GET_REPOS_FAIL = 'GET_REPOS_FAIL';
 
 export const SET_ACTIVE_PAGE = 'SET_ACTIVE_PAGE';
+export const SET_USER_TYPE = 'SET_USER_TYPE';

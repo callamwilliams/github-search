@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import * as S from './styles';
+import UserType from '../UserType';
 import LogoSVG from '../../assets/img/octocat.svg';
 
 import { getUser } from '../../store/actions/user';
 import { getRepos } from '../../store/actions/repos';
 
-const SearchBox = ({ getUser, getRepos }) => {
+const SearchBox = ({ getUser, getRepos, activeUserType }) => {
   const [input, setInput] = useState('');
 
   const onSubmit = e => {
     e.preventDefault();
     getRepos(input);
-    getUser(input);
+    getUser(input, null, activeUserType);
     clearInput();
   };
 
@@ -37,11 +38,18 @@ const SearchBox = ({ getUser, getRepos }) => {
         />
         <S.SearchButton type="submit">Submit</S.SearchButton>
       </S.SearchForm>
+      <UserType />
     </S.Wrapper>
   );
 };
 
+function mapStateToProps(state) {
+  return {
+    activeUserType: state.userType.activeUserType
+  };
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   { getUser, getRepos }
 )(SearchBox);

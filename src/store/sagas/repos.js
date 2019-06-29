@@ -32,14 +32,19 @@ function fetchReposData(url) {
 }
 
 export function* fetchRepos(action) {
-  let { username, activePage } = action.payload;
+  let { username, activePage, userType } = action.payload;
+
+  const pageQuery = activePage ? `&page=${activePage}` : '';
+
+  let url;
+  if (userType === 'username') {
+    url = `/api/users/${username}/repos?per_page=10`;
+  } else {
+    url = `/api/orgs/${username}/repos?per_page=10`;
+  }
 
   try {
-    let response = yield call(
-      fetchReposData,
-      ///users/andrew/repos?per_page=10&page=5
-      `/api/users/${username}/repos?per_page=10&page=${activePage}`
-    );
+    let response = yield call(fetchReposData, `${url}${pageQuery}`);
 
     if (response.data) {
       let nextPage = yield getNextPage(response);
