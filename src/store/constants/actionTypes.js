@@ -11,3 +11,4 @@ export const GET_REPOS_FAIL = 'GET_REPOS_FAIL';
 
 export const SET_ACTIVE_PAGE = 'SET_ACTIVE_PAGE';
 export const SET_USER_TYPE = 'SET_USER_TYPE';
+export const SET_FILTER_TYPE = 'SET_FILTER_TYPE';

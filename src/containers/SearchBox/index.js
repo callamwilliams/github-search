@@ -12,8 +12,8 @@ const SearchBox = ({ getUser, getRepos, activeUserType }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    getRepos(input);
-    getUser(input, null, activeUserType);
+    getRepos(input, null, activeUserType);
+    getUser(input);
     clearInput();
   };
 

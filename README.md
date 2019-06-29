@@ -8,7 +8,7 @@
 - [X] Reverse proxy with no CORS requests
 - [X] Routes fallback to index.html
 - [X] Working alongside React App
-- [ ] Refine routes
+- ~~[ ] Refine routes~~
 
 ## React
 
@@ -25,11 +25,11 @@
 - [X] List
 - [ ] Click repo to show info
 - [X] Pagination
-- [ ] Sortable and filterable by API options
-  - [ ] created
-  - [ ] updated
-  - [ ] pushed
-  - [ ] full_name
+- [X] Sortable and filterable by API options
+  - [X] created
+  - [X] updated
+  - [X] pushed
+  - [X] full_name
 
 ### Extras
 

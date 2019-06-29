@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import Pagination from '../Pagination';
+import Filter from '../Filter';
 import * as S from './styles';
 import ForkSVG from '../../assets/img/fork.svg';
 import IssuesSVG from '../../assets/img/issues.svg';
@@ -14,6 +15,7 @@ const RepoList = ({ repos, nextPage, loading, error }) => {
 
   return (
     <S.Repos>
+      <Filter />
       {repos &&
         repos.map(item => {
           return (

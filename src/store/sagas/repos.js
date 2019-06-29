@@ -1,5 +1,6 @@
 import { put, call } from 'redux-saga/effects';
 import axios from 'axios';
+import changeCase from 'change-case';
 import { GET_REPOS_SUCCESS, GET_REPOS_FAIL } from '../constants/actionTypes';
 
 function cleanURL(url) {
@@ -31,6 +32,11 @@ function getPageCount(activePage) {
   return activePage ? `&page=${activePage}` : '';
 }
 
+function getFilterType(filterType) {
+  const filter = changeCase.snakeCase(filterType);
+  return filterType ? `&sort=${filter}` : '';
+}
+
 /**
  * Would typically use redux-saga-requests with axios here
  */
@@ -41,11 +47,12 @@ function fetchReposData(url) {
 }
 
 export function* fetchRepos(action) {
-  let { username, activePage, userType } = action.payload;
+  let { username, activePage, userType, filterType } = action.payload;
 
   const url = [
     ...getUrlType(username, userType),
-    ...getPageCount(activePage)
+    ...getPageCount(activePage),
+    ...getFilterType(filterType)
   ].join('');
 
   try {
