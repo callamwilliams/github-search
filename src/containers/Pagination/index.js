@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PageCount from 'react-js-pagination';
 import { setActivePage } from '../../store/actions/pagination';
+import { getRepos } from '../../store/actions/repos';
 
-const Pagination = ({ repoCount, setActivePage }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
+  const [currentPage, setCurrentPage] = useState(0);
 
   const handlePageChange = pageNumber => {
     setCurrentPage(pageNumber);
     setActivePage(pageNumber);
+    getRepos(username, pageNumber);
   };
+
+  useEffect(() => {
+    setActivePage(currentPage);
+  }, []);
 
   return (
     <PageCount
@@ -25,11 +31,12 @@ const Pagination = ({ repoCount, setActivePage }) => {
 function mapStateToProps(state) {
   const { data } = state.user;
   return {
+    username: data.login,
     repoCount: data.public_repos
   };
 }
 
 export default connect(
   mapStateToProps,
-  { setActivePage }
+  { setActivePage, getRepos }
 )(Pagination);

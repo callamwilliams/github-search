@@ -32,11 +32,13 @@ function fetchReposData(url) {
 }
 
 export function* fetchRepos(action) {
-  let { username } = action.payload;
+  let { username, activePage } = action.payload;
+
   try {
     let response = yield call(
       fetchReposData,
-      `/api/users/${username}/repos?per_page=10`
+      ///users/andrew/repos?per_page=10&page=5
+      `/api/users/${username}/repos?per_page=10&page=${activePage}`
     );
 
     if (response.data) {
