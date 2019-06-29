@@ -12,19 +12,28 @@ function cleanURL(url) {
 function getNextPage(response) {
   const link = response.headers.link;
   if (!link) return null;
-
   const nextLink = cleanURL(link);
-
   if (!nextLink) return null;
-
   return nextLink;
+}
+
+function getUrlType(username, userType) {
+  let url;
+  if (userType === 'username') {
+    url = `/api/users/${username}/repos?per_page=10`;
+  } else {
+    url = `/api/orgs/${username}/repos?per_page=10`;
+  }
+  return url;
+}
+
+function getPageCount(activePage) {
+  return activePage ? `&page=${activePage}` : '';
 }
 
 /**
  * Would typically use redux-saga-requests with axios here
  */
-
-//
 
 // TODO: swap to fetch
 function fetchReposData(url) {
@@ -34,17 +43,13 @@ function fetchReposData(url) {
 export function* fetchRepos(action) {
   let { username, activePage, userType } = action.payload;
 
-  const pageQuery = activePage ? `&page=${activePage}` : '';
-
-  let url;
-  if (userType === 'username') {
-    url = `/api/users/${username}/repos?per_page=10`;
-  } else {
-    url = `/api/orgs/${username}/repos?per_page=10`;
-  }
+  const url = [
+    ...getUrlType(username, userType),
+    ...getPageCount(activePage)
+  ].join('');
 
   try {
-    let response = yield call(fetchReposData, `${url}${pageQuery}`);
+    let response = yield call(fetchReposData, `${url}`);
 
     if (response.data) {
       let nextPage = yield getNextPage(response);
