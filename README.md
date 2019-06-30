@@ -68,7 +68,7 @@ Then I'd use [Elastic Beanstalk with NGINX](https://docs.aws.amazon.com/elasticb
 * [X] Reverse proxy with no CORS requests
 * [X] Routes fallback to index.html
 * [X] Working alongside React App
-* ~~ Refine routes~~
+
 
 ## React
 
