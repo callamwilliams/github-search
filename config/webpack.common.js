@@ -1,6 +1,3 @@
-'use strict';
-
-const path = require('path');
 const webpack = require('webpack');
 const globImporter = require('node-sass-glob-importer');
 const HtmlPlugin = require('html-webpack-plugin');

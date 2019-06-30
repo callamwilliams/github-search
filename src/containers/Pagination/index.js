@@ -29,8 +29,8 @@ Pagination.propTypes = {
   username: PropTypes.string,
   repoCount: PropTypes.number,
   setActivePage: PropTypes.func,
-  getRepos: PropTypes.func,
-}
+  getRepos: PropTypes.func
+};
 
 function mapStateToProps(state) {
   const { data } = state.user;

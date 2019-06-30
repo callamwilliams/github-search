@@ -24,6 +24,7 @@ const UserType = ({ setUserType }) => {
         <input
           type="radio"
           name="search_type"
+          id="username"
           value="username"
           checked={activeType === 'username'}
           onChange={onChange}
@@ -34,6 +35,7 @@ const UserType = ({ setUserType }) => {
         <input
           type="radio"
           name="search_type"
+          id="organisation"
           value="organisation"
           checked={activeType === 'organisation'}
           onChange={onChange}
@@ -45,7 +47,7 @@ const UserType = ({ setUserType }) => {
 
 UserType.propTypes = {
   setUserType: PropTypes.func
-}
+};
 
 export default connect(
   null,

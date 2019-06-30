@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -43,7 +41,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    //{ from: 'from', to: 'to' },
+    // { from: 'from', to: 'to' },
     new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
     new webpack.HashedModuleIdsPlugin()
   ]

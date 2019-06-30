@@ -41,6 +41,7 @@ Unfortunately I didn't have enough time to write any unit or E2E tests;
 
 * Normalise the data coming back from the API
 * Pagination should scroll to the top on new data
+* Pagination package `react-js-pagination` isnt compatible with hooks, which I noticed very late. Code should work, but active page # is not being updated.
 * Update the components with the normalised data
 * Write unit and integration tests
 * Write E2E tests
