@@ -1,5 +1,4 @@
 import { put, call } from 'redux-saga/effects';
-import axios from 'axios';
 import changeCase from 'change-case';
 import { GET_REPOS_SUCCESS, GET_REPOS_FAIL } from '../constants/actionTypes';
 
@@ -26,9 +25,8 @@ function getFilterType(filterType) {
  * Would typically use redux-saga-requests with axios here
  */
 
-// TODO: swap to fetch
 function fetchReposData(url) {
-  return axios.get(url);
+  return fetch(url).then(response => response.json());
 }
 
 export function* fetchRepos(action) {
@@ -43,8 +41,8 @@ export function* fetchRepos(action) {
   try {
     const response = yield call(fetchReposData, `${url}`);
 
-    if (response.data) {
-      const customPayload = { repos: response.data };
+    if (response) {
+      const customPayload = { repos: response };
       yield put({ type: GET_REPOS_SUCCESS, payload: customPayload });
     }
   } catch (err) {

@@ -17,7 +17,7 @@
 - [X] Controlled search input
 - [X] Search type select
 - [X] Loading component
-- [ ] Fetch data using fetch API, not axios
+- [X] Fetch data using fetch API, not axios
 - [X] Manage data with global state
 
 ### List of public repos
@@ -35,7 +35,7 @@
 
 - [X] WebPack setup
 - [ ] E2E testing
-- [ ] One integration test
+- [X] One integration test
 
 ## Explain design choices
 
