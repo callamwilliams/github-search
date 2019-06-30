@@ -13,6 +13,7 @@ export const Repo = styled.ul`
   padding-bottom: 30px;
   padding-top: 30px;
   text-align: left;
+  cursor: pointer;
   a {
     margin-right: auto;
     color: #0366d6;

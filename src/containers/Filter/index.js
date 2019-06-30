@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import * as S from './styles';
 import { setFilterType } from '../../store/actions/filterType';
 import { getRepos } from '../../store/actions/repos';
 
@@ -18,12 +19,12 @@ const Filter = ({ username, activeUserType, setFilterType, getRepos }) => {
   }, []);
 
   return (
-    <select onChange={onChange} value={activeFilter}>
+    <S.Select onChange={onChange} value={activeFilter}>
       <option>Full Name</option>
       <option>Created</option>
       <option>Updated</option>
       <option>Pushed</option>
-    </select>
+    </S.Select>
   );
 };
 

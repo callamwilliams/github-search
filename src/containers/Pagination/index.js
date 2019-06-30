@@ -5,7 +5,7 @@ import { setActivePage } from '../../store/actions/pagination';
 import { getRepos } from '../../store/actions/repos';
 
 const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = pageNumber => {
     setCurrentPage(pageNumber);

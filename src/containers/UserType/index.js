@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import * as S from './styles';
 import { setUserType } from '../../store/actions/userType';
 
 const UserType = ({ setUserType }) => {
@@ -16,8 +17,8 @@ const UserType = ({ setUserType }) => {
   }, []);
 
   return (
-    <div>
-      <div>
+    <S.RadioGroup>
+      <S.RadioItem>
         <label>Username</label>
         <input
           type="radio"
@@ -26,8 +27,8 @@ const UserType = ({ setUserType }) => {
           checked={activeType === 'username'}
           onChange={onChange}
         />
-      </div>
-      <div>
+      </S.RadioItem>
+      <S.RadioItem>
         <label>Organisation</label>
         <input
           type="radio"
@@ -36,8 +37,8 @@ const UserType = ({ setUserType }) => {
           checked={activeType === 'organisation'}
           onChange={onChange}
         />
-      </div>
-    </div>
+      </S.RadioItem>
+    </S.RadioGroup>
   );
 };
 

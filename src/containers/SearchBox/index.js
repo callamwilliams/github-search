@@ -27,18 +27,22 @@ const SearchBox = ({ getUser, getRepos, activeUserType }) => {
 
   return (
     <S.Wrapper>
-      <S.Logo src={LogoSVG} cacheGetRequests />
-      <S.SearchForm onSubmit={onSubmit}>
-        <S.SearchInput
-          type="text"
-          value={input}
-          onChange={onChange}
-          onFocus={clearInput}
-          placeholder="Type a username to begin"
-        />
-        <S.SearchButton type="submit">Submit</S.SearchButton>
-      </S.SearchForm>
-      <UserType />
+      <S.Inner>
+        <S.Logo src={LogoSVG} cacheGetRequests />
+        <S.FormWrapper>
+          <S.SearchForm onSubmit={onSubmit}>
+            <S.SearchInput
+              type="text"
+              value={input}
+              onChange={onChange}
+              onFocus={clearInput}
+              placeholder="Type a username to begin"
+            />
+            <S.SearchButton type="submit">Submit</S.SearchButton>
+          </S.SearchForm>
+          <UserType />
+        </S.FormWrapper>
+      </S.Inner>
     </S.Wrapper>
   );
 };

@@ -1,13 +1,21 @@
 import styled from 'styled-components';
+import { device } from '../../global';
 
 export const Wrapper = styled.div`
   display: flex;
-  flex: 0 1 25%;
+  flex: 0 1 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   height: fit-content;
-  padding: 10px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px 20px 10px 20px;
+
+  @media ${device.tablet} {
+    flex: 0 1 25%;
+    padding: 10px 20px 10px 0;
+  }
 `;
 
 export const UserName = styled.h1`

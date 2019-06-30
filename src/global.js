@@ -1,6 +1,11 @@
 import styledNormalize from 'styled-normalize';
 import { createGlobalStyle } from 'styled-components';
 
+export const device = {
+  tablet: `(min-width: 768px)`,
+  laptop: `(min-width: 1024px)`
+};
+
 export const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
   @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
@@ -176,9 +181,5 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 }
-
-
-
-
 
 `;

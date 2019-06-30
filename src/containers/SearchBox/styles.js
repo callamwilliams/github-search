@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import SVG from 'react-inlinesvg';
+import { device } from '../../global';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,9 +12,34 @@ export const Wrapper = styled.div`
   color: #ffffff;
 `;
 
+export const Inner = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
+`;
+
+export const FormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
 export const Logo = styled(SVG)`
   display: block;
   width: 45px;
+  margin-bottom: 20px;
+
+  @media ${device.tablet} {
+    margin-bottom: 0;
+  }
 
   svg {
     width: 100%;
@@ -22,13 +48,16 @@ export const Logo = styled(SVG)`
 
 export const SearchForm = styled.form`
   display: flex;
-  width: 50%;
+  width: 100%;
+  margin-left: auto;
+
+  @media ${device.tablet} {
+    width: 50%;
+  }
 `;
 
 export const SearchInput = styled.input`
   width: 100%;
-  max-width: 500px;
-  margin-left: 20px;
   background-color: #fff;
   background-position: right 8px center;
   background-repeat: no-repeat;
@@ -42,6 +71,11 @@ export const SearchInput = styled.input`
   outline: none;
   padding: 6px 8px;
   vertical-align: middle;
+
+  @media ${device.tablet} {
+    max-width: 500px;
+    margin-left: 20px;
+  }
 `;
 
 export const SearchButton = styled.button`
