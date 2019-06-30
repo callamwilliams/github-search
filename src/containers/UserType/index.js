@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as S from './styles';
 import { setUserType } from '../../store/actions/userType';
 
@@ -14,26 +15,26 @@ const UserType = ({ setUserType }) => {
 
   useEffect(() => {
     setUserType();
-  }, []);
+  }, [setUserType]);
 
   return (
     <S.RadioGroup>
       <S.RadioItem>
-        <label>Username</label>
+        <label htmlFor="username">Username</label>
         <input
           type="radio"
           name="search_type"
-          value={'username'}
+          value="username"
           checked={activeType === 'username'}
           onChange={onChange}
         />
       </S.RadioItem>
       <S.RadioItem>
-        <label>Organisation</label>
+        <label htmlFor="organisation">Organisation</label>
         <input
           type="radio"
           name="search_type"
-          value={'organisation'}
+          value="organisation"
           checked={activeType === 'organisation'}
           onChange={onChange}
         />
@@ -41,6 +42,10 @@ const UserType = ({ setUserType }) => {
     </S.RadioGroup>
   );
 };
+
+UserType.propTypes = {
+  setUserType: PropTypes.func
+}
 
 export default connect(
   null,

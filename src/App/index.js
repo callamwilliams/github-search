@@ -5,8 +5,7 @@ import User from '../containers/User';
 import ErrorMessage from '../containers/ErrorMessage';
 import * as S from './styles';
 
-const App = () => {
-  return (
+const App = () => (
     <main>
       <SearchBox />
       <ErrorMessage />
@@ -16,6 +15,5 @@ const App = () => {
       </S.Wrapper>
     </main>
   );
-};
 
 export default App;

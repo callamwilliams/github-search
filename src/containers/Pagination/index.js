@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import PageCount from 'react-js-pagination';
 import { setActivePage } from '../../store/actions/pagination';
 import { getRepos } from '../../store/actions/repos';
@@ -23,6 +24,13 @@ const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
     />
   );
 };
+
+Pagination.propTypes = {
+  username: PropTypes.string,
+  repoCount: PropTypes.number,
+  setActivePage: PropTypes.func,
+  getRepos: PropTypes.func,
+}
 
 function mapStateToProps(state) {
   const { data } = state.user;

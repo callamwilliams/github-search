@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import * as S from './styles';
 
@@ -28,11 +29,22 @@ const User = ({ user, loading }) => {
   );
 };
 
+User.propTypes = {
+  user: PropTypes.shape({
+    login: PropTypes.string,
+    name: PropTypes.string,
+    avatar_url: PropTypes.string,
+    public_repos: PropTypes.number,
+    followers: PropTypes.number,
+  }),
+  loading: PropTypes.string
+}
+
 function mapStateToProps(state) {
   const { data, loading } = state.user;
   return {
     user: data,
-    loading: loading
+    loading
   };
 }
 export default connect(mapStateToProps)(User);

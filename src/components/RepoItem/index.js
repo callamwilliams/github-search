@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import * as S from './styles';
 import ForkSVG from '../../assets/img/fork.svg';
@@ -7,7 +8,7 @@ import UpdatedSVG from '../../assets/img/updated.svg';
 
 moment.locale('en-gb');
 
-const RepoItem = ({ item }, ...props) => {
+const RepoItem = ({ item, children }) => {
   const {
     html_url,
     name,
@@ -29,7 +30,7 @@ const RepoItem = ({ item }, ...props) => {
         <h3>{name}</h3>
       </a>
       <S.Description>{description}</S.Description>
-      {props.children}
+      {children}
       {details && (
         <S.IconList>
           {fork && (
@@ -51,5 +52,18 @@ const RepoItem = ({ item }, ...props) => {
     </S.Repo>
   );
 };
+
+RepoItem.propTypes = {
+  item: PropTypes.shape({
+    html_url: PropTypes.string,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    fork: PropTypes.bool,
+    stargazers_count: PropTypes.number,
+    open_issues_count: PropTypes.number,
+    updated_at: PropTypes.string,
+  }),
+  children: PropTypes.element
+}
 
 export default RepoItem;

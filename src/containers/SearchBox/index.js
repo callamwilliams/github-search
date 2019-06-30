@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as S from './styles';
 import UserType from '../UserType';
 import LogoSVG from '../../assets/img/octocat.svg';
@@ -10,19 +11,19 @@ import { getRepos } from '../../store/actions/repos';
 const SearchBox = ({ getUser, getRepos, activeUserType }) => {
   const [input, setInput] = useState('');
 
-  const onSubmit = e => {
-    e.preventDefault();
-    getRepos(input, null, activeUserType);
-    getUser(input);
-    clearInput();
-  };
-
   const onChange = e => {
     setInput(e.target.value);
   };
 
   const clearInput = () => {
     setInput('');
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+    getRepos(input, null, activeUserType);
+    getUser(input);
+    clearInput();
   };
 
   return (
@@ -46,6 +47,12 @@ const SearchBox = ({ getUser, getRepos, activeUserType }) => {
     </S.Wrapper>
   );
 };
+
+SearchBox.propTypes = {
+  activeUserType: PropTypes.string,
+  getUser: PropTypes.func,
+  getRepos: PropTypes.func,
+}
 
 function mapStateToProps(state) {
   return {

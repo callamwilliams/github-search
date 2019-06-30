@@ -32,7 +32,7 @@ function fetchReposData(url) {
 }
 
 export function* fetchRepos(action) {
-  let { username, activePage, userType, filterType } = action.payload;
+  const { username, activePage, userType, filterType } = action.payload;
 
   const url = [
     ...getUrlType(username, userType),
@@ -41,7 +41,7 @@ export function* fetchRepos(action) {
   ].join('');
 
   try {
-    let response = yield call(fetchReposData, `${url}`);
+    const response = yield call(fetchReposData, `${url}`);
 
     if (response.data) {
       const customPayload = { repos: response.data };

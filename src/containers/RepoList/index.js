@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
 import RepoItem from '../../components/RepoItem';
 import Pagination from '../Pagination';
 import Filter from '../Filter';
@@ -16,9 +18,7 @@ const RepoList = ({ repos, loading }) => {
         <>
           <Filter />
           {repos &&
-            repos.map(item => {
-              return <RepoItem key={item.id} item={item} />;
-            })}
+            repos.map(item => <RepoItem key={item.id} item={item} />)}
           <Pagination />
         </>
       )}
@@ -26,12 +26,17 @@ const RepoList = ({ repos, loading }) => {
   );
 };
 
+RepoList.propTypes = {
+  repos: PropTypes.object,
+  loading: PropTypes.bool,
+}
+
 function mapStateToProps(state) {
   const { data, loading } = state.repos;
 
   return {
     repos: data,
-    loading: loading
+    loading
   };
 }
 export default connect(mapStateToProps)(RepoList);

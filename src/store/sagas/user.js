@@ -12,9 +12,9 @@ function fetchUserData(username) {
 }
 
 export function* fetchUser(action) {
-  let { username } = action.payload;
+  const { username } = action.payload;
   try {
-    let response = yield call(fetchUserData, username);
+    const response = yield call(fetchUserData, username);
     if (response.data) {
       yield put({ type: GET_USER_SUCCESS, payload: response.data });
     }
