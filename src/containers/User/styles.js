@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 
   @media ${device.tablet} {
     flex: 0 1 25%;
-    padding: 10px 20px 10px 0;
+    padding: 10px 10px 10px 0;
   }
 `;
 

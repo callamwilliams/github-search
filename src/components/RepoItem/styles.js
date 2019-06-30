@@ -12,8 +12,14 @@ export const Repo = styled.ul`
   list-style: none;
   padding-bottom: 30px;
   padding-top: 30px;
+  padding: 30px 10px;
   text-align: left;
   cursor: pointer;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+
   a {
     margin-right: auto;
     color: #0366d6;

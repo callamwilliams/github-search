@@ -8,7 +8,7 @@
 - [X] Reverse proxy with no CORS requests
 - [X] Routes fallback to index.html
 - [X] Working alongside React App
-- ~~[ ] Refine routes~~
+- ~~ Refine routes~~
 
 ## React
 
@@ -16,14 +16,14 @@
 
 - [X] Controlled search input
 - [X] Search type select
-- [ ] Loading component using suspense
+- [X] Loading component
 - [ ] Fetch data using fetch API, not axios
 - [X] Manage data with global state
 
 ### List of public repos
 
 - [X] List
-- [ ] Click repo to show info
+- [X] Click repo to show info
 - [X] Pagination
 - [X] Sortable and filterable by API options
   - [X] created
