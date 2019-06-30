@@ -35,10 +35,10 @@ User.propTypes = {
     name: PropTypes.string,
     avatar_url: PropTypes.string,
     public_repos: PropTypes.number,
-    followers: PropTypes.number,
+    followers: PropTypes.number
   }),
-  loading: PropTypes.string
-}
+  loading: PropTypes.bool
+};
 
 function mapStateToProps(state) {
   const { data, loading } = state.user;

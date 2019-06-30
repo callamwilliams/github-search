@@ -17,8 +17,7 @@ const RepoList = ({ repos, loading }) => {
       ) : (
         <>
           <Filter />
-          {repos &&
-            repos.map(item => <RepoItem key={item.id} item={item} />)}
+          {repos && repos.map(item => <RepoItem key={item.id} item={item} />)}
           <Pagination />
         </>
       )}
@@ -27,9 +26,9 @@ const RepoList = ({ repos, loading }) => {
 };
 
 RepoList.propTypes = {
-  repos: PropTypes.object,
-  loading: PropTypes.bool,
-}
+  repos: PropTypes.array,
+  loading: PropTypes.bool
+};
 
 function mapStateToProps(state) {
   const { data, loading } = state.repos;
