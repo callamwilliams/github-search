@@ -10,6 +10,8 @@ Run `npm test` to Run tests for one redux-saga
 
 Run `npm server-test` for a basic integration test of the node API
 
+* You might need to add credentials in an env file, so I've added an `.env.sample` so everything is in the right place. Do this by going to [the developers page in GitHub](https://github.com/settings/developers) > OAuth Apps > New OAuth app, and copying the credentials over.
+
 ## Explain process
 
 First I set up the API proxy server with Node and Express. I had planned to create some set routes, but ran out of time, so ended up handling the routing on the frontend and using a wildcard to accept all incoming connections to `/api/*`
@@ -32,12 +34,18 @@ Unfortunately I didn't have enough time to write any unit or E2E tests;
 - Update the components with the normalised data
 - Write unit and integration tests
 - Write E2E tests
-- The `getRepos()` action probably has too many arguments(4) which probably means that the repos saga is doing too much. It'd be nice to abstract this down a little.
+- The `getRepos()` action probably has too many arguments(4) which probably means that the repos saga is doing too much. It'd be nice to abstract this out and make it more granular.
 - Set some non-wildcard routes on the server
 - Add some animation/polish
 - Run some optimisation tasks
 
 ## Explain how I’d make it deployable
+
+For the frontend app, I would create an S3 bucket, run the `build` task and deploy the static files the get put in the public folder.
+
+I'd refactor the Node server to make sure it wasn't sharing dependencies with the frontend and that we have updated .env paths for a production environment. Then I'd use [Elastic Beanstalk with NGINX](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/nodejs-platform-proxy.html) on AWS for the node server.
+
+I'd then set up a domain name, and SSL certificates.
 
 ## Node
 
