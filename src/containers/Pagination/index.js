@@ -7,8 +7,8 @@ import { getRepos } from '../../store/actions/repos';
 
 const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
   const handlePageChange = pageNumber => {
-    setActivePage(pageNumber.selected + 1);
-    getRepos(username, pageNumber.selected + 1);
+    setActivePage(pageNumber.selected);
+    getRepos(username, pageNumber.selected);
   };
 
   return (
