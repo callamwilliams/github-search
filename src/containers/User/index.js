@@ -5,12 +5,10 @@ import _ from 'lodash';
 import * as S from './styles';
 
 const User = ({ user, loading }) => {
-  if (_.isEmpty(user)) return null;
-
   const { login, name, avatar_url, public_repos, followers } = user;
   return (
     <S.Wrapper>
-      {loading ? (
+      {loading && _.isEmpty(user) ? (
         <p>Loading...</p>
       ) : (
         <>

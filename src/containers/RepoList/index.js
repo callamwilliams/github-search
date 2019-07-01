@@ -7,23 +7,19 @@ import Pagination from '../Pagination';
 import Filter from '../Filter';
 import * as S from './styles';
 
-const RepoList = ({ repos, loading }) => {
-  if (_.isEmpty(repos)) return null;
-
-  return (
-    <S.Repos>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <Filter />
-          {repos && repos.map(item => <RepoItem key={item.id} item={item} />)}
-          <Pagination />
-        </>
-      )}
-    </S.Repos>
-  );
-};
+const RepoList = ({ repos, loading }) => (
+  <S.Repos>
+    {loading && _.isEmpty(repos) ? (
+      <p>Loading...</p>
+    ) : (
+      <>
+        <Filter />
+        {repos && repos.map(item => <RepoItem key={item.id} item={item} />)}
+        <Pagination />
+      </>
+    )}
+  </S.Repos>
+);
 
 RepoList.propTypes = {
   repos: PropTypes.array,
