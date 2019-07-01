@@ -6,7 +6,7 @@ Run `npm i && npm start`
 
 Run `npm start` once packages are installed to start the server and React App in parallel.
 
-Run `npm test` to run tests for one redux-saga -tests found in `__tests__`
+Run `npm test` to run tests for one redux-saga test found in `__tests__`
 
 Run `npm server-test` for a basic integration test of the node API
 
