@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import PageCount from 'react-js-pagination';
+import ReactPaginate from 'react-paginate';
 import { setActivePage } from '../../store/actions/pagination';
 import { getRepos } from '../../store/actions/repos';
 
@@ -15,13 +15,21 @@ const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
   };
 
   return (
-    <PageCount
-      activePage={currentPage}
-      itemsCountPerPage={10}
-      totalItemsCount={repoCount}
-      pageRangeDisplayed={5}
-      onChange={handlePageChange}
-    />
+    <>
+      <ReactPaginate
+        previousLabel="previous"
+        nextLabel="next"
+        breakLabel="..."
+        breakClassName="break-me"
+        pageCount={currentPage}
+        marginPagesDisplayed={5}
+        pageRangeDisplayed={repoCount}
+        onPageChange={handlePageChange}
+        containerClassName="pagination"
+        subContainerClassName="pages pagination"
+        activeClassName="active"
+      />
+    </>
   );
 };
 
