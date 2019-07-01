@@ -18,7 +18,7 @@ const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
         nextLabel="next"
         breakLabel="..."
         breakClassName="break-me"
-        pageCount={repoCount}
+        pageCount={repoCount / 10}
         marginPagesDisplayed={1}
         pageRangeDisplayed={5}
         onPageChange={handlePageChange}
