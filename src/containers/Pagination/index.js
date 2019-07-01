@@ -7,8 +7,8 @@ import { getRepos } from '../../store/actions/repos';
 
 const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
   const handlePageChange = pageNumber => {
-    setActivePage(pageNumber.selected);
-    getRepos(username, pageNumber.selected);
+    setActivePage(pageNumber.selected + 1);
+    getRepos(username, pageNumber.selected + 1);
   };
 
   return (
@@ -18,7 +18,7 @@ const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
         nextLabel="next"
         breakLabel="..."
         breakClassName="break-me"
-        pageCount={repoCount / 10}
+        pageCount={Math.ceil(repoCount / 10)}
         marginPagesDisplayed={1}
         pageRangeDisplayed={5}
         onPageChange={handlePageChange}
