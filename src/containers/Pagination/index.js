@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
@@ -6,12 +6,9 @@ import { setActivePage } from '../../store/actions/pagination';
 import { getRepos } from '../../store/actions/repos';
 
 const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
   const handlePageChange = pageNumber => {
-    setCurrentPage(pageNumber);
-    setActivePage(pageNumber);
-    getRepos(username, pageNumber);
+    setActivePage(pageNumber.selected);
+    getRepos(username, pageNumber.selected);
   };
 
   return (
@@ -21,9 +18,9 @@ const Pagination = ({ username, repoCount, setActivePage, getRepos }) => {
         nextLabel="next"
         breakLabel="..."
         breakClassName="break-me"
-        pageCount={currentPage}
-        marginPagesDisplayed={5}
-        pageRangeDisplayed={repoCount}
+        pageCount={repoCount}
+        marginPagesDisplayed={1}
+        pageRangeDisplayed={5}
         onPageChange={handlePageChange}
         containerClassName="pagination"
         subContainerClassName="pages pagination"
