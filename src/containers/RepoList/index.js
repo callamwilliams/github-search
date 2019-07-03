@@ -8,7 +8,7 @@ import Filter from '../Filter';
 import * as S from './styles';
 
 const RepoList = ({ repos, loading }) => {
-  if (_.isEmpty(repos)) return null;
+  if (_.isEmpty(repos) && loading === false) return null;
   return (
     <S.Repos>
       {loading ? (

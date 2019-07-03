@@ -7,7 +7,9 @@ export const Wrapper = styled.section`
   max-width: 1200px;
   margin: 0 auto;
 
+
   @media ${device.tablet} {
     flex-direction: row;
+    padding: 10px;
   }
 `;
