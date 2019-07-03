@@ -11,15 +11,15 @@ const RepoList = ({ repos, loading }) => {
   if (_.isEmpty(repos)) return null;
   return (
     <S.Repos>
-      {loading && _.isEmpty(repos) ? (
+      {loading ? (
         <p>Loading...</p>
       ) : (
         <>
           <Filter />
           {repos && repos.map(item => <RepoItem key={item.id} item={item} />)}
-          <Pagination />
         </>
       )}
+      <Pagination />
     </S.Repos>
   );
 };
