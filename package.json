@@ -89,7 +89,7 @@
     "path": "^0.12.7",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.18.2",
-    "react-dev-utils": "^9.0.1",
+    "react-dev-utils": "^11.0.4",
     "react-hot-loader": "^4.11.1",
     "sass-loader": "^7.1.0",
     "url-loader": "^2.0.1",
